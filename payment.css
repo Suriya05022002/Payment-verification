@@ -1,0 +1,70 @@
+body {
+    background-color: #f0f4f8;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+#paymentOptions{
+    margin-bottom: 50px;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+}
+
+.list-group-item i {
+    margin-right: 10px;
+}
+
+.list-group-item.active {
+    background-color: green;
+    border-color: red;
+    color: white;
+}
+
+.list-group-item-action:hover {
+    background-color: blue;
+}
+
+.qr-img{
+    width: 400px
+}
+
+.payment-details {
+    margin-top: 20px;
+}
+
+a.button {
+    background-color: blue;
+    border-color: green;
+}
+
+
+.btn-primary {
+    background-color: blue;
+    border-color: green;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        max-width: 25%;
+    }
+
+    .col-md-9 {
+        max-width: 75%;
+    }
+}

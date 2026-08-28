@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - GOWTHAMRAJ NETWORK</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="payment.css">
+    <link rel="shortcut icon" href="../../../../logo.png" type="image/svg+xml">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group" id="paymentOptions">
+                    <a href="#" class="list-group-item list-group-item-action" data-option="scanQr">
+                        <i class="fas fa-qrcode"></i> Scan QR Code &nbsp; <span id="new-label">SELECT</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" data-option="upi">
+                        <i class="fas fa-mobile-alt"></i> UPI &nbsp; <span id="new-label">SELECT</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Payment & Verification</h4>
+                        
+                        <div class="form-group">
+                            <label for="amount">Amount to be Paid (₹):</label>
+                            <input type="text" class="form-control font-weight-bold" id="amount" value="4300" readonly style="color:green;">
+                        </div>
+
+                        <!-- UPI Details Section -->
+                        <div id="upiDetails" class="payment-details d-none text-center">
+                            <a href="upi://pay?pa=gowthamrajp06@oksbi&cu=INR&am=4300" class="btn btn-primary mb-3">Click Here to Pay via UPI</a>
+                            <p class="text-danger font-weight-bold">Complete the fee payment using any UPI app, then fill out the verification form below.</p>
+                        </div>
+
+                        <!-- Scan QR Details Section -->
+                        <div id="scanQrDetails" class="payment-details d-none text-center">
+                            <div class="form-group">
+                                <img class="qr-img img-fluid" src="GooglePay_QR (1).webp" alt="QR Code">
+                                <p class="mt-2">Scan this QR code to pay</p>
+                                <p class="text-danger font-weight-bold">After paying, complete the verification form below.</p>
+                            </div>
+                        </div>
+
+                        <!-- Verification Form Section -->
+                        <div id="verificationFormSection" class="d-none mt-4 border-top pt-4">
+                            <h5 class="text-center text-primary mb-3">Submit Verification Details</h5>
+                            <form action="submit_details.php" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="fullName">1. Full Name</label>
+                                    <input type="text" class="form-control" id="fullName" name="fullName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phoneNumber">2. Phone Number</label>
+                                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="emailId">3. E-Mail ID</label>
+                                    <input type="email" class="form-control" id="emailId" name="emailId" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="transactionId">4. Fees Payment Transaction ID</label>
+                                    <input type="text" class="form-control" id="transactionId" name="transactionId" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="paymentScreenshot">5. Fees Payment Screenshot</label>
+                                    <input type="file" class="form-control-file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*,.pdf" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="govtId">6. Government ID Proof (PDF Format)</label>
+                                    <input type="file" class="form-control-file" id="govtId" name="govtId" accept="application/pdf" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="studentId">7. Student ID Card (PDF Format)</label>
+                                    <input type="file" class="form-control-file" id="studentId" name="studentId" accept="application/pdf" required>
+                                </div>
+                                <button type="submit" name="submit" class="btn btn-success btn-block mt-4">Submit Payment Details</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="payment.js"></script>
+</body>
+
+</html>
